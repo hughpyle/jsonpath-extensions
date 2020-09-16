@@ -221,7 +221,7 @@ class ParseEpochDatetime(BaseFn):
             raise DefintionInvalid(
                 f'{self.time_format} is invalid: excepted {self.VALID_FORMATS.keys()}')
         deno = self.VALID_FORMATS[self.time_format]
-        value = datetime.fromtimestamp(float(obj) / deno)
+        value = datetime.utcfromtimestamp(float(obj) / deno)
         return ParseDatetime.args_to_slice(
             self.slice_arg, value.isoformat())
 
