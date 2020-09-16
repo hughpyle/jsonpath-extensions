@@ -165,4 +165,13 @@ _behavior:_
 return passed_dict.get(value, None)
 
 ```
-    
+
+
+### Case-Folding
+
+Replaces a string with lowercase.  The case-folding is suitable for case-insensitive comparison.
+
+_usage:_ ```$.my.path.`fold` ```
+
+result is: path value string replaced with lower-case.
+
