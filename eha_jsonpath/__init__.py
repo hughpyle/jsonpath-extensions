@@ -29,6 +29,8 @@ class JsonPathParser(ExtentedJsonPathParser):
             p[0] = fn.Template(p[1])
         elif p[1].startswith("dictionaryreplace("):
             p[0] = fn.DictionaryReplace(p[1])
+        elif p[1] == "fold":
+            p[0] = fn.Fold(p[1])
         else:
             super(JsonPathParser, self).p_jsonpath_named_operator(p)
 

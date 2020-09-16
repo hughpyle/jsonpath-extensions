@@ -300,3 +300,19 @@ class DictionaryReplace(BaseFn):
 
     def _do(self, obj):
         return self._dict.get(obj, None)
+
+
+class Fold(BaseFn):
+    '''
+        usage: `fold`
+        result is: string as lower-case ("casefold"), suitable for case-insensitive comparisons
+    '''
+    METHOD_SIG = re.compile(r'fold')
+
+    def __init__(self, method=None):
+        self.method = method
+
+    def _do(self, obj):
+        if isinstance(obj, str):
+            return obj.casefold()
+        return obj

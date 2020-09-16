@@ -16,6 +16,7 @@ src = {
     'int': '1.09',
     'str': 1.0,
     'str2': 'a',
+    'str3': ['AaÁÀÃÂÄÅĀĂĄ-BbḂƁḄḆƂƄɃ-CcĆĈĊČƇÇḈȻ-DdḊƊḌḎḐḒĎÐĐƉ-EeƋÈÉÊẼĒĔĖËẺĚȄȆẸ-ß'],
     'boolean0': '0',
     'boolean1': 0,
     'boolean2': 1,
@@ -190,6 +191,12 @@ hard_dictionary = {
         True),
     (f'$.str2.`dictionaryreplace({str(easy_dictionary)})`',
         [easy_dictionary[src.get('str2')]],
+        False),
+    (f'$.str2.`fold`',
+        ['a'],
+        False),
+    (f'$.str3.`fold`',
+        ['aaáàãâäåāăą-bbḃɓḅḇƃƅƀ-ccćĉċčƈçḉȼ-ddḋɗḍḏḑḓďðđɖ-eeƌèéêẽēĕėëẻěȅȇẹ-ss'],
         False),
 ])
 def test_extensions(cmd, expect, raises):
